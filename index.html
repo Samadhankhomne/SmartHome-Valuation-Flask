@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>House Price Prediction</h1>
+        <form method="POST" action="/predict">
+            <label for="sqft">Enter Square Footage:</label><br>
+            <input type="text" id="sqft" name="sqft" required><br><br>
+            <input type="submit" value="Predict Price">
+        </form>
+        {% if prediction %}
+            <h2>{{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
